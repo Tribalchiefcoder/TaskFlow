@@ -1,4 +1,8 @@
 
+/* =====================================
+   GLOBAL APPLICATION LAYOUT
+===================================== */
+
 .app {
   display: flex;
   min-height: 100vh;
@@ -28,16 +32,33 @@
 }
 
 .nav-item {
-  padding: 13px 15px;
-  margin-bottom: 8px;
-  border-radius: 8px;
-  color: #cbd5e1;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  border: none;
+  background: transparent;
+  text-align: left;
   cursor: pointer;
+  font: inherit;
+  color: inherit;
+  padding: 12px 15px;
+  border-radius: 8px;
+  margin-bottom: 6px;
+  transition: 0.2s ease;
 }
 
 .nav-item.active {
-  background: #3730a3;
+  background: #2563eb;
   color: white;
+}
+
+.nav-item:hover {
+  background: rgba(100, 116, 139, 0.12);
+}
+
+.nav-item span {
+  font-size: 18px;
 }
 
 .main-content {
@@ -45,6 +66,10 @@
   padding: 40px;
   min-width: 0;
 }
+
+/* =====================================
+   HEADER
+===================================== */
 
 header {
   display: flex;
@@ -73,6 +98,10 @@ header p {
   font-size: 14px;
 }
 
+/* =====================================
+   STATISTICS
+===================================== */
+
 .stats {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -95,6 +124,10 @@ header p {
 .stat-card h2 {
   font-size: 30px;
 }
+
+/* =====================================
+   TASK SECTION
+===================================== */
 
 .task-section {
   background: white;
@@ -152,55 +185,28 @@ header p {
   color: #166534;
 }
 
-@media (max-width: 900px) {
-  .stats {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-@media (max-width: 600px) {
-  .app {
-    flex-direction: column;
-  }
-
-  .sidebar {
-    width: 100%;
-    min-width: 0;
-    padding: 18px;
-  }
-
-  .sidebar h2 {
-    margin-bottom: 15px;
-  }
-
-  .main-content {
-    padding: 20px;
-  }
-
-  header {
-    align-items: flex-start;
-    flex-direction: column;
-  }
-
-  .stats {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* Authentication page */
+/* =====================================
+   AUTHENTICATION PAGE
+===================================== */
 
 .auth-page {
   min-height: 100vh;
+  min-height: 100svh;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px;
+  padding: 24px 16px;
   background: #f1f5f9;
+  overflow-x: hidden;
+  overflow-y: auto;
+  box-sizing: border-box;
 }
 
 .auth-card {
   width: 100%;
   max-width: 420px;
+  margin: auto 0;
   background: white;
   padding: 40px;
   border-radius: 16px;
@@ -228,7 +234,14 @@ header p {
   margin-bottom: 16px;
   border: 1px solid #cbd5e1;
   border-radius: 8px;
-  font-size: 15px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.auth-card input:focus {
+  outline: none;
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.12);
 }
 
 .auth-card button {
@@ -259,6 +272,10 @@ header p {
   margin: 12px 0;
 }
 
+/* =====================================
+   LOGOUT
+===================================== */
+
 .logout-button {
   margin-top: 40px;
   width: 100%;
@@ -269,6 +286,11 @@ header p {
   border-radius: 8px;
   cursor: pointer;
 }
+
+/* =====================================
+   TASK FORM
+===================================== */
+
 .task-form {
   background: white;
   padding: 25px;
@@ -317,6 +339,10 @@ header p {
   cursor: pointer;
 }
 
+/* =====================================
+   TASK ACTIONS
+===================================== */
+
 .task-actions {
   display: flex;
   gap: 8px;
@@ -350,6 +376,10 @@ header p {
   background: #fecaca;
 }
 
+/* =====================================
+   TASK CONTROLS
+===================================== */
+
 .task-controls {
   display: flex;
   flex-wrap: wrap;
@@ -370,6 +400,10 @@ header p {
   flex: 1;
   min-width: 180px;
 }
+
+/* =====================================
+   PAGINATION
+===================================== */
 
 .pagination {
   display: flex;
@@ -394,39 +428,10 @@ header p {
   cursor: not-allowed;
 }
 
+/* =====================================
+   ANALYTICS
+===================================== */
 
-/* WORKSPACE NAVIGATION */
-.nav-item {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  width: 100%;
-  border: none;
-  background: transparent;
-  text-align: left;
-  cursor: pointer;
-  font: inherit;
-  color: inherit;
-  padding: 12px 15px;
-  border-radius: 8px;
-  margin-bottom: 6px;
-  transition: 0.2s ease;
-}
-
-.nav-item:hover {
-  background: rgba(100, 116, 139, 0.12);
-}
-
-.nav-item.active {
-  background: #2563eb;
-  color: white;
-}
-
-.nav-item span {
-  font-size: 18px;
-}
-
-/* ANALYTICS */
 .analytics-section {
   margin: 30px 0;
 }
@@ -553,17 +558,6 @@ header p {
   background: #22c55e;
 }
 
-@media (max-width: 768px) {
-  .analytics-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .nav-item {
-    font-size: 14px;
-  }
-}
-
-
 /* =====================================
    TASKFLOW BRANDING
 ===================================== */
@@ -571,24 +565,28 @@ header p {
 .brand-logo {
   display: flex;
   align-items: center;
-  gap: 11px;
-  color: #635bdb;
-  font-size: 25px;
+  gap: 12px;
+  color: #6d28d9;
+  font-size: 26px;
   font-weight: 800;
   letter-spacing: -1px;
   margin-bottom: 42px;
 }
 
 .brand-icon {
-  width: 43px;
-  height: 43px;
+  width: 48px;
+  height: 48px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #756cf6, #4f46e5);
-  border-radius: 13px;
-  color: white;
-  box-shadow: 0 5px 15px rgba(79, 70, 229, 0.25);
+  flex-shrink: 0;
+  border-radius: 15px;
+  background: linear-gradient(135deg, #8b5cf6, #5b21b6);
+  box-shadow: 0 5px 15px rgba(109, 40, 217, 0.25);
+}
+
+.brand-icon svg {
+  display: block;
 }
 
 .auth-card .brand-logo {
@@ -639,7 +637,7 @@ header p {
 }
 
 .theme-dark .brand-logo {
-  color: #a5a0ff;
+  color: #c4b5fd;
 }
 
 .theme-dark .nav-heading {
@@ -777,7 +775,140 @@ header p {
 }
 
 /* =====================================
-   SMOOTH THEME TRANSITION
+   RESPONSIVE TABLET
+===================================== */
+
+@media (max-width: 900px) {
+  .stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* =====================================
+   RESPONSIVE ANALYTICS
+===================================== */
+
+@media (max-width: 768px) {
+  .analytics-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .nav-item {
+    font-size: 14px;
+  }
+}
+
+/* =====================================
+   RESPONSIVE MOBILE
+===================================== */
+
+@media (max-width: 600px) {
+  .app {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    min-width: 0;
+    padding: 18px;
+  }
+
+  .sidebar h2 {
+    margin-bottom: 15px;
+  }
+
+  .main-content {
+    padding: 20px;
+  }
+
+  header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  header h1 {
+    font-size: 26px;
+  }
+
+  .stats {
+    grid-template-columns: 1fr;
+  }
+
+  .brand-logo {
+    margin-bottom: 20px;
+  }
+
+  .theme-toggle {
+    margin-top: 12px;
+  }
+
+  /* Android-friendly authentication layout */
+
+  .auth-page {
+    min-height: 100vh;
+    min-height: 100svh;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 24px 16px;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .auth-card {
+    width: 100%;
+    max-width: 420px;
+    padding: 28px 22px;
+    margin: auto 0;
+  }
+
+  .auth-card input {
+    font-size: 16px;
+    padding: 14px;
+  }
+
+  .auth-card button {
+    min-height: 48px;
+  }
+
+  .auth-card .brand-logo {
+    margin-bottom: 22px;
+  }
+
+  .task-section,
+  .task-form {
+    padding: 18px;
+  }
+
+  .task-card {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .task-controls {
+    flex-direction: column;
+  }
+
+  .task-controls input,
+  .task-controls select {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .task-actions {
+    flex-wrap: wrap;
+  }
+
+  .pagination {
+    gap: 8px;
+  }
+
+  .chart-card {
+    padding: 18px;
+  }
+}
+
+/* =====================================
+   SMOOTH THEME TRANSITIONS
 ===================================== */
 
 .app,
@@ -788,50 +919,4 @@ header p {
     background-color 0.2s ease,
     border-color 0.2s ease,
     color 0.2s ease;
-}
-
-@media (max-width: 600px) {
-  .brand-logo {
-    margin-bottom: 20px;
-  }
-
-  .theme-toggle {
-    margin-top: 12px;
-  }
-}
-
-/* UPDATED TASKFLOW BRANDING */
-.brand-logo {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  color: #6d28d9;
-  font-size: 26px;
-  font-weight: 800;
-  letter-spacing: -1px;
-  margin-bottom: 42px;
-}
-
-.brand-icon {
-  width: 48px;
-  height: 48px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  border-radius: 15px;
-  background: linear-gradient(135deg, #8b5cf6, #5b21b6);
-  box-shadow: 0 5px 15px rgba(109, 40, 217, 0.25);
-}
-
-.brand-icon svg {
-  display: block;
-}
-
-.theme-dark .brand-logo {
-  color: #c4b5fd;
-}
-
-.auth-card .brand-logo {
-  margin-bottom: 28px;
 }
