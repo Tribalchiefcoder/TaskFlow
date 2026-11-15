@@ -12,32 +12,32 @@ A modern, full-stack task management application built using the MERN stack. Tas
 
 ### 1. Login & Registration
 
-![TaskFlow Login](docs/screenshots/01-login.png)
+![TaskFlow Login](./docs/screenshots/01-login.png)
 
 ### 2. Dashboard – Light Theme
 
-![TaskFlow Light Dashboard](docs/screenshots/02-dashboard-light.png)
+![TaskFlow Light Dashboard](./docs/screenshots/02-dashboard-light.png)
 
 ### 3. Dashboard – Dark Theme
 
-![TaskFlow Dark Dashboard](docs/screenshots/03-dashboard-dark.png)
+![TaskFlow Dark Dashboard](./docs/screenshots/03-dashboard-dark.png)
 
 ### 4. Create Task
 
-![Create Task](docs/screenshots/04-create-task.png)
+![Create Task](./docs/screenshots/04-create-task.png)
 
 ### 5. Task Management
 
-![Task Management](docs/screenshots/05-task-management.png)
+![Task Management](./docs/screenshots/05-task-management.png)
 
 ## ✨ Features
 
-- **User Authentication:** Secure user registration and login using JWT-based authentication.
+- **User Authentication:** Secure registration and login using JWT-based authentication.
 - **Task Management:** Create, view, update, and delete tasks.
 - **Persistent Storage:** Store tasks in MongoDB so they remain available after refreshing or logging in again.
 - **Search & Filtering:** Find and organize tasks using available filters.
 - **Pagination:** Navigate through tasks efficiently with paginated results.
-- **Task Prioritization:** Organize tasks based on their priority.
+- **Task Prioritization:** Organize tasks based on priority.
 - **Analytics Dashboard:** View task statistics and monitor progress.
 - **Dark & Light Themes:** Switch between themes directly from the dashboard.
 - **Responsive Interface:** Access the application across desktop and mobile devices.
@@ -58,7 +58,6 @@ A modern, full-stack task management application built using the MERN stack. Tas
 
 ```text
 TaskFlow/
-│
 ├── backend/
 │   ├── config/
 │   ├── controllers/
@@ -67,21 +66,21 @@ TaskFlow/
 │   ├── routes/
 │   ├── .env.example
 │   └── server.js
-│
 ├── frontend/
 │   ├── public/
 │   ├── src/
 │   └── package.json
-│
 ├── docs/
 │   └── screenshots/
-│
+│       ├── 01-login.png
+│       ├── 02-dashboard-light.png
+│       ├── 03-dashboard-dark.png
+│       ├── 04-create-task.png
+│       └── 05-task-management.png
 └── README.md
 ```
 
 ## ⚙️ Installation & Setup
-
-Follow these steps to run TaskFlow locally.
 
 ### 1. Clone the Repository
 
@@ -97,9 +96,7 @@ cd backend
 npm install
 ```
 
-Create a `.env` file using `backend/.env.example` as a reference.
-
-Configure the required environment variables, including your MongoDB connection string, JWT secret, and server port.
+Create a `.env` file using `backend/.env.example` as a reference. Configure your MongoDB connection string, JWT secret, and other required variables.
 
 Start the backend:
 
@@ -132,21 +129,17 @@ npm run dev
 
 Visit the local development URL provided by Vite, usually:
 
-```text
-http://localhost:5173
-```
+`http://localhost:5173`
 
 ## 🔐 Environment Variables
 
-Configure the required environment variables using the example files provided in the project.
-
-**Frontend:**
+**Frontend**
 
 | Variable | Description |
 |---|---|
 | `VITE_API_URL` | Backend API base URL |
 
-**Backend:**
+**Backend**
 
 - MongoDB connection string.
 - JWT secret.
