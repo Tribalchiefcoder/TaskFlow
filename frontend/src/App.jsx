@@ -5,7 +5,6 @@ import "./App.css";
 const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000/api";
 const TASKS_PER_PAGE = 10;
 
-
 function TaskFlowLogo() {
   return (
     <div className="brand-logo">
@@ -49,7 +48,6 @@ function TaskFlowLogo() {
     </div>
   );
 }
-
 
 function App() {
   // THEME STATE (saved between visits)
@@ -151,7 +149,6 @@ function App() {
         params.append("search", search.trim());
       }
 
-      // Completed view always shows completed tasks
       const effectiveStatus =
         activeView === "completed"
           ? "Completed"
@@ -221,6 +218,7 @@ function App() {
         lowPriority: 0,
         overdue: 0,
       });
+
     } catch (err) {
       console.error("Analytics fetch error:", err.message);
       setError(err.message);
@@ -242,7 +240,7 @@ function App() {
     activeView,
   ]);
 
-  // Fetch analytics after login and whenever the authenticated user changes
+  // FETCH ANALYTICS AFTER LOGIN
   useEffect(() => {
     if (token) {
       fetchAnalytics(token);
@@ -341,6 +339,7 @@ function App() {
     setCurrentPage(1);
     setTotalPages(1);
     setTotalTasks(0);
+
     setAnalytics({
       totalTasks: 0,
       completed: 0,
@@ -351,6 +350,7 @@ function App() {
       lowPriority: 0,
       overdue: 0,
     });
+
     setActiveView("dashboard");
   };
 
@@ -392,7 +392,6 @@ function App() {
       setCurrentPage(1);
       fetchAnalytics(token);
 
-      // Refresh tasks after creation
       if (currentPage === 1) {
         fetchTasks(token, 1);
       }
@@ -507,7 +506,7 @@ function App() {
     }
   };
 
-  // CHART DATA FROM THE COMPLETE DATABASE COLLECTION
+  // CHART DATA
   const statusCounts = {
     Completed: analytics.completed,
     "In Progress": analytics.inProgress,
@@ -533,24 +532,15 @@ function App() {
     : 0;
 
   // AUTHENTICATION SCREEN
+  // ALWAYS LIGHT THEME
   if (!token) {
     return (
-      <div className={`auth-page ${theme === "dark" ? "theme-dark" : ""}`}>
+      <div className="auth-page">
         <form
           className="auth-card"
           onSubmit={handleAuth}
         >
           <TaskFlowLogo />
-
-          <button
-            type="button"
-            className="theme-toggle"
-            onClick={toggleTheme}
-            aria-label={`Switch to ${theme === "light" ? "dark" : "light"} mode`}
-          >
-            <span>{theme === "light" ? "☾" : "☀"}</span>
-            {theme === "light" ? "Dark Mode" : "Light Mode"}
-          </button>
 
           <h2>
             {isRegister
@@ -692,6 +682,7 @@ function App() {
           Completed
         </button>
 
+        {/* THEME TOGGLE ONLY INSIDE DASHBOARD */}
         <button
           type="button"
           className="theme-toggle"
@@ -952,6 +943,7 @@ function App() {
                 <p className="chart-caption">
                   {analytics.completed} of {analytics.totalTasks} total tasks completed
                 </p>
+
                 <p className="chart-caption">
                   {analytics.overdue} overdue tasks
                 </p>
